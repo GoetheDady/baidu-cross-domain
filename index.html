@@ -4,66 +4,16 @@
     <meta charset="UTF-8">
     <title>百度跨域</title>
     <style>
-        *{
-            margin:0;
-            padding: 0;
-        }
-        img{
-            width: 270px;
-            height:129px;
-            display: block;
-            margin:0 auto;
-            margin-top: 15%;
-        }
-        .show{
-            text-align: center;
-        }
-        input{
-            width:536px;
-            height: 40px;
-            font-size: 18px;
-        }
-        .but{
-            display: inline-block;
-            width:100px;
-            height: 44px;
-            line-height: 44px;
-            text-align: center;
-            background-color: #38f;
-            font-size: 16px;
-            color: white;
-            cursor: pointer;
-            position: relative;
-            top:0px;
-            left:-5px;
-        }
-        .but:hover{
-            background-color: #317ef3;
-        }
-        .search{
-            width: 539px;
-            margin: 0 auto;
-            position: relative;
-            left: -52px;
-            display: none;
-            border:1px solid #ddd;
-        }
-        .search ul li {
-            width:539px;
-            height:30px;
-            text-indent: 10px;
-            line-height: 30px;
-            list-style: none;
-            text-align: left;
-        }
-        .search ul li a{
-            color: #000;
-            text-decoration: none;
-            display: block;
-        }
-        .search ul li a:hover{
-            background-color: #ddd;
-        }
+        *{margin:0;padding: 0;}
+        img{width: 270px;height:129px;display: block;margin:0 auto;margin-top: 15%;}
+        .show{text-align: center;}
+        input{width:536px;height: 40px;font-size: 18px;}
+        .but{display: inline-block;width:100px;height: 44px;line-height: 44px;text-align: center;background-color: #38f;font-size: 16px;color: white;cursor: pointer;position: relative;top:0px;left:-5px;}
+        .but:hover{background-color: #317ef3;}
+        .search{width: 539px;margin: 0 auto;position: relative;left: -52px;display: none;border:1px solid #ddd;}
+        .search ul li{width:539px;height:30px;text-indent: 10px;line-height: 30px;list-style: none;text-align: left;}
+        .search ul li a{color: #000;text-decoration: none;display: block;}
+        .search ul li a:hover{background-color: #ddd;}
     </style>
 </head>
 <body>
@@ -81,22 +31,22 @@
     var oText = document.getElementById('text');
     var oSearch = document.getElementsByClassName('search')[0];
     var oUl = document.getElementsByTagName('ul')[0];
-    oText.onkeyup = function(){
+    oText.onkeyup = function() {
         oUl.innerHTML = '';
         var val = this.value;
-        val ? oSearch.style.display = 'block' : oSearch.style.display = 'none';
+        val ? oSearch.style.display = 'block': oSearch.style.display = 'none';
         var os = document.createElement('script');
-        os.src = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd='+ val +'&cb=gede';
+        os.src = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=' + val + '&cb=gede';
         os.className = 'script';
         document.body.appendChild(os);
     };
-    function gede(data){
-        for(var i = 0 ; i < data.s.length ; i ++){
+    function gede(data) {
+        for (var i = 0; i < data.s.length; i++) {
             var oLi = document.createElement('li');
-            oLi.innerHTML = '<a href='+'"https://www.baidu.com/s?wd=' + data.s[i] + '">'+ data.s[i] +'</a>';
+            oLi.innerHTML = '<a href=' + '"https://www.baidu.com/s?wd=' + data.s[i] + '">' + data.s[i] + '</a>';
             oUl.appendChild(oLi);
         }
-        var sss=document.getElementsByClassName("script")[0];
+        var sss = document.getElementsByClassName("script")[0];
         document.body.removeChild(sss);
     }
 </script>
